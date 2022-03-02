@@ -3,14 +3,97 @@
 <head>
     <title>Spring Security Example </title>
 </head>
+<style>
+    header{
+        width: 100%;
+        background: #222222;
+        height: 62px;
+    }
+    .nft-header {
+        width: 120px;
+        cursor: pointer;
+    }
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        background: #191919;
+    }
+
+    a{
+        text-decoration: none;
+    }
+
+    h2{
+        width: 200px;
+        position: relative;
+        left: 180px;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        color: #980923;
+        text-decoration: none;
+    }
+    h1{
+
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        text-decoration: none;
+    }
+    .container-login {
+       position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        text-decoration: none;
+    }
+    button[type="submit"] {
+        border: none;
+        border-radius: 7px;
+        padding: 20px 55px;
+        background: #4caf50;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: white;
+      }
+        button[type="submit"]:hover {
+        background: #2E8B57;
+      }
+      button[name="addNY"] {
+        border: 2px;
+        border-radius: 7px;
+        border-color: #000000;
+        padding: 20px 55px;
+        background: white;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: white;
+      }
+        button[name="addNY"]:hover {
+        background: #2E8B57;
+      }
+</style>
+<header>
+    <!--    <img src="../NFT.png" class="nft-header">-->
+    <a href="/main"> <h2>SocialClub </h2> </a>
+
+</header>
 <body>
-Login page
+
 <form action="/login" method="post">
-    <div><label> User Name : <input type="text" name="username"/> </label></div>
-    <div><label> Password: <input type="password" name="password"/> </label></div>
-    <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
-    <div><input type="submit" value="Sign In"/></div>
+    <div class="container-login">
+        <div><label> <input type="text" name="username" required placeholder="Username:"/> </label></div>
+        <div><label><input type="password" name="password" required placeholder="Password: "/> </label></div>
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+        <div><button type="submit" value="Sign In">Sign in</button></div>
+        <div><button type="submit" name="addNY"><a href="/registration"> Add new user </a></button></div>
+    </div>
 </form>
-<a href="/registration">Add new user</a>
 </body>
 </html>
