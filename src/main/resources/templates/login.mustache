@@ -31,7 +31,7 @@
         left: 180px;
         top: 50%;
         transform: translate(-50%, -50%);
-        color: #980923;
+        color: #6A5ACD;
         text-decoration: none;
     }
     h1{
@@ -51,36 +51,53 @@
         color: white;
         text-decoration: none;
     }
+    input[type=text] {
+        border-radius: 7px;
+        width: 100%;
+        padding: 20px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+    }
+    input[type=password] {
+        border-radius: 7px;
+        width: 100%;
+        padding: 20px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+    }
     button[type="submit"] {
         border: none;
         border-radius: 7px;
-        padding: 20px 55px;
-        background: #4caf50;
+        padding: 15px 83px;
+        background: #6A5ACD;
         cursor: pointer;
         text-transform: uppercase;
         font-weight: bold;
         color: white;
+        transition: 1s;
+        margin: 10px 0px;
       }
         button[type="submit"]:hover {
-        background: #2E8B57;
+        background: #483D8B;
       }
       button[name="addNY"] {
         border: 2px;
         border-radius: 7px;
         border-color: #000000;
-        padding: 20px 55px;
+        padding: 15px 55px;
         background: white;
         cursor: pointer;
         text-transform: uppercase;
         font-weight: bold;
         color: white;
+        transition: 1s;
       }
         button[name="addNY"]:hover {
-        background: #2E8B57;
+        background: #A9A9A9;
       }
 </style>
 <header>
-    <!--    <img src="../NFT.png" class="nft-header">-->
+<!--    <img src="../NFT.png" class="nft-header">-->
     <a href="/main"> <h2>SocialClub </h2> </a>
 
 </header>
@@ -88,6 +105,7 @@
 
 <form action="/login" method="post">
     <div class="container-login">
+
         <div><label> <input type="text" name="username" required placeholder="Username:"/> </label></div>
         <div><label><input type="password" name="password" required placeholder="Password: "/> </label></div>
         <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
