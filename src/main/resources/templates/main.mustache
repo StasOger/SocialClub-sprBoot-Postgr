@@ -4,6 +4,7 @@
         width: 100%;
         background: #222222;
         height: 62px;
+
     }
     .nft-header {
         width: 120px;
@@ -40,23 +41,25 @@
         text-decoration: none;
     }
     .container-login {
-       position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        color: white;
-        text-decoration: none;
+       position: relative;
+        margin: 100px 100px;
+
+
     }
     input[type=submit] {
         border-radius: 7px;
-        width: 100%;
-        padding: 20px 20px;
-        margin: 8px 0;
-        box-sizing: border-box;
+        position: absolute;
+        padding: 15px 15px;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: white;
+        margin: -20px 90%;
+
         transition: 1s;
+        background: #6A5ACD;
     }
     input[type=submit]:hover {
-        background: #A9A9A9;
+        background: #483D8B;
     }
     input[type=text] {
         border-radius: 7px;
@@ -102,18 +105,34 @@
         button[name="addNY"]:hover {
         background: #A9A9A9;
       }
+      .container-messages {
+        color: white;
+        border: 7px white;
+        border-radius: 7px;
+        padding: 15px 55px;
+        background: #222222;
+        text-decoration: none;
+        margin-top: 10px;
+    }
 </style>
 <header>
     <!--    <img src="../NFT.png" class="nft-header">-->
     <a href="/main"> <h2>SocialClub </h2> </a>
+    <form action="/logout" method="post">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+        <input type="submit" value="Sign Out"/>
+    </form>
 </header>
 <body>
 <div class="container-login">
     <div>
-        <form action="/logout" method="post">
-            <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
-            <input type="submit" value="Sign Out"/>
-        </form>
+        {{#messages}}
+            <div class="container-messages">
+                <b>{{id}}</b>
+                <span>{{text}}</span>
+                <i>{{tag}}</i>
+            </div>
+        {{/messages}}
     </div>
     <div>
         <form method="post">
@@ -123,19 +142,13 @@
             <button type="submit">Добавить</button>
         </form>
     </div>
-    <div>Список сообщений</div>
+
     <form method="post" action="filter">
-        <input type="text" name="filter">
+        <input type="text" name="filter" placeholder="🔎Найти сообщение" >
         <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
         <button type="submit">Найти</button>
     </form>
-    {{#messages}}
-    <div>
-        <b>{{id}}</b>
-        <span>{{text}}</span>
-        <i>{{tag}}</i>
-    </div>
-    {{/messages}}
+
 </div>
 </body>
 </html>
